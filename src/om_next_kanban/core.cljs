@@ -14,8 +14,8 @@
 (defui App
   Object
   (render [this]
-    (dom/div nil
-             (dom/h1 nil "This is a title"))))
+          (dom/div nil
+                   (dom/h1 nil "This is a title"))))
 
 (def reconciler (om/reconciler {:state app-state}))
 
