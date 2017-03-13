@@ -10,7 +10,7 @@
 
 (defn add-to-cards [cards ref]
   (into [] (cond-> cards
-                   (not (some #{ref} cards)) (conj ref))))
+             (not (some #{ref} cards)) (conj ref))))
 
 (defn move-card [state card from to]
   (letfn [(remove* [cards ref]
