@@ -1,7 +1,7 @@
 (ns om-next-kanban.parsing.boards
   (:require [om.next :as om]
             [om-next-kanban.reconciler :refer [mutate read]]
-            [om-next-kanban.components.lane :as lanes]))
+            [om-next-kanban.parsing.lanes :as lanes]))
 
 (defmethod read :boards
   [{:keys [state query]} key _]
