@@ -37,4 +37,3 @@
                                             "Create")))))))
 
 (def boards-menu (om/factory BoardsMenu))
-
