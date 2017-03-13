@@ -4,7 +4,8 @@
             [om.dom :as dom :include-macros true]
             [om-next-kanban.components.card :as kanban-card]
             [devcards.util :refer [render-cb-info update-cb-info]]
-            [devcards.lanes]))
+            [devcards.lanes]
+            [devcards.sortable-list]))
 
 (defcard
   "# Kanban cards
