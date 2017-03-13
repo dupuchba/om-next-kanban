@@ -153,8 +153,8 @@
   (fn [state _]
     (dom/div nil
              (kanban-lane/lane
-               (om/computed (:lane @state)
-                            {:card-create-fn (partial update-cb-info :create state)}))
+              (om/computed (:lane @state)
+                           {:card-create-fn (partial update-cb-info :create state)}))
              (render-cb-info :create state "Card create")))
   {:lane {:id 1 :name "Backlog"}}
   {:inspect-data true :history true})
@@ -164,8 +164,8 @@
   (fn [state _]
     (dom/div nil
              (kanban-lane/lane
-               (om/computed (:lane @state)
-                            {:card-edit-fn (partial update-cb-info :edit state)}))
+              (om/computed (:lane @state)
+                           {:card-edit-fn (partial update-cb-info :edit state)}))
              (render-cb-info :edit state "Card edit")))
   {:lane {:id 1
           :name "Backlog"
@@ -178,9 +178,9 @@
   (fn [state _]
     (dom/div nil
              (kanban-lane/lane
-               (om/computed (:lane @state)
-                            {:card-drag-fns
-                             {:start (partial update-cb-info :drag-start state)}}))
+              (om/computed (:lane @state)
+                           {:card-drag-fns
+                            {:start (partial update-cb-info :drag-start state)}}))
              (render-cb-info :drag-start state "Card drag start")))
   {:lane {:id 1
           :name "Backlog"
@@ -193,9 +193,9 @@
   (fn [state _]
     (dom/div nil
              (kanban-lane/lane
-               (om/computed (:lane @state)
-                            {:card-drag-fns
-                             {:end (partial update-cb-info :drag-end state)}}))
+              (om/computed (:lane @state)
+                           {:card-drag-fns
+                            {:end (partial update-cb-info :drag-end state)}}))
              (render-cb-info :drag-end state "Card drag end")))
   {:lane {:id 1
           :name "Backlog"
@@ -208,9 +208,9 @@
   (fn [state _]
     (dom/div nil
              (kanban-lane/lane
-               (om/computed (:lane @state)
-                            {:card-drag-fns
-                             {:drop (partial update-cb-info :drop state)}}))
+              (om/computed (:lane @state)
+                           {:card-drag-fns
+                            {:drop (partial update-cb-info :drop state)}}))
              (render-cb-info :drop state "Card drop")))
   {:lane {:id 1
           :name "Backlog"
@@ -228,11 +228,11 @@
                                        :borderSpacing "0.5rem"}}
                       (for [lane (:lanes @state)]
                         (kanban-lane/lane
-                          (om/computed lane
-                                       {:card-drag-fns
-                                        {:start (partial update-cb-info :start state)
-                                         :end (partial update-cb-info :end state)
-                                         :drop (partial update-cb-info :drop state)}}))))
+                         (om/computed lane
+                                      {:card-drag-fns
+                                       {:start (partial update-cb-info :start state)
+                                        :end (partial update-cb-info :end state)
+                                        :drop (partial update-cb-info :drop state)}}))))
              (render-cb-info :start state "Card drag start")
              (render-cb-info :end state "Card drag end")
              (render-cb-info :drop state "Card drop")))
@@ -276,12 +276,12 @@
                                        :borderSpacing "0.5rem"}}
                       (for [lane (:lanes @state)]
                         (kanban-lane/lane
-                          (om/computed
-                            lane
-                            {:card-drag-fns
-                             {:start #(swap! state assoc :drag-info [%1 %2])
-                              :end #(swap! state dissoc :drag-info)
-                              :drop #(move-card state %)}}))))))
+                         (om/computed
+                          lane
+                          {:card-drag-fns
+                           {:start #(swap! state assoc :drag-info [%1 %2])
+                            :end #(swap! state dissoc :drag-info)
+                            :drop #(move-card state %)}}))))))
   {:lanes [{:id 1
             :name "Backlog"
             :cards [{:id 20 :text "This is a card from backlog"}

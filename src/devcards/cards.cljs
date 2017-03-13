@@ -131,6 +131,5 @@
   {:card {:id 1 :text "Initial text"}}
   {:inspect-data true :history true})
 
-
 (defn ^:export main []
   (devcards.core/start-devcard-ui!))
