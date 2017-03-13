@@ -31,7 +31,7 @@
   (let [st @state]
     {:value (get st key)}))
 
-(defmethod mutate 'cards/drag
+(defmethod mutate `drag
   [{:keys [state]} _ params]
   {:value {:keys [:cards/dragged]}
    :action (fn []
@@ -46,12 +46,12 @@
       {:value (om/db->tree query (get st key) st)}
       {:value nil})))
 
-(defmethod mutate 'cards/edit
+(defmethod mutate `edit
   [{:keys [state]} _ {:keys [card]}]
   {:value {:keys [:cards/editing]}
    :action (fn [] (swap! state assoc :cards/editing card))})
 
-(defmethod mutate 'cards/update
+(defmethod mutate `update
   [{:keys [state]} _ {:keys [card data]}]
   {:value {:keys [card]}
    :action (fn [] (swap! state update-in card #(merge % data)))})

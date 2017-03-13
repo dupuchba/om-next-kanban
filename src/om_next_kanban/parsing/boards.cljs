@@ -15,7 +15,7 @@
       {:value (om/db->tree query (get st key) st)}
       {:value nil})))
 
-(defmethod mutate 'boards/activate
+(defmethod mutate `activate
   [{:keys [state]} _ {:keys [ref]}]
   {:value {:keys [:boards/active]}
    :action #(swap! state assoc :boards/active ref)})
@@ -27,12 +27,12 @@
       {:value (om/db->tree query (get st key) st)}
       {:value nil})))
 
-(defmethod mutate 'boards/edit
+(defmethod mutate `edit
   [{:keys [state]} _ {:keys [board]}]
   {:value {:keys [:boards/editing]}
    :action (fn [] (swap! state assoc :boards/editing board))})
 
-(defmethod mutate 'boards/update
+(defmethod mutate `update
   [{:keys [state]} _ {:keys [board data]}]
   {:value {:keys [board]}
    :action (fn [] (swap! state update-in board #(merge % data)))})
@@ -50,7 +50,7 @@
         (update :boards conj ref)
         (assoc :boards/editing ref))))
 
-(defmethod mutate 'boards/create-board
+(defmethod mutate `create-board
   [{:keys [state]} _ _]
   {:value {:keys [:boards :boards/editing]}
    :action #(swap! state create-board)})

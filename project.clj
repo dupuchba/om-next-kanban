@@ -36,7 +36,7 @@
                                ;; Comment this out once it no longer serves you.
                                :open-urls ["http://localhost:3449/index.html"]}
 
-                :compiler     {:main                 om-next-kanban.core
+                :compiler     {:main                 om-next-kanban.app
                                :asset-path           "js/compiled/out"
                                :output-to            "resources/public/js/compiled/om_next_kanban.js"
                                :output-dir           "resources/public/js/compiled/out"

@@ -19,7 +19,7 @@
         (update-in (conj from :cards) remove* card)
         (update-in (conj to :cards) add-to-cards card))))
 
-(defmethod mutate 'lanes/move-card
+(defmethod mutate `move-card
   [{:keys [state]} _ {:keys [card from to]}]
   {:value {:keys [card from to]}
    :action #(swap! state move-card card from to)})
@@ -30,7 +30,7 @@
         (update-in (conj lane :cards) add-to-cards card)
         (assoc :cards/editing card))))
 
-(defmethod mutate 'lanes/create-card
+(defmethod mutate `create-card
   [{:keys [state]} _ {:keys [lane]}]
   {:value {:keys [lane :cards :cards/editing]}
    :action #(swap! state create-card lane)})
@@ -40,7 +40,7 @@
       (cards/delete-card card)
       (update-in (conj lane :cards) #(remove #{%2} %1) card)))
 
-(defmethod mutate 'lanes/delete-card
+(defmethod mutate `delete-card
   [{:keys [state]} _ {:keys [lane card]}]
   {:value {:keys [lane card]}
    :action #(swap! state delete-card lane card)})
