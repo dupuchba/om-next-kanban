@@ -3,7 +3,8 @@
             [om.next :as om :include-macros true]
             [om.dom :as dom :include-macros true]
             [om-next-kanban.components.card :as kanban-card]
-            [devcards.util :refer [render-cb-info update-cb-info]]))
+            [devcards.util :refer [render-cb-info update-cb-info]]
+            [devcards.lanes]))
 
 (defcard
   "# Kanban cards
@@ -129,3 +130,7 @@
              (render-cb-info :drag-end state "Drag end")))
   {:card {:id 1 :text "Initial text"}}
   {:inspect-data true :history true})
+
+
+(defn ^:export main []
+  (devcards.core/start-devcard-ui!))
