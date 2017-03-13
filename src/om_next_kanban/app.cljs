@@ -2,7 +2,7 @@
   (:require [om.next :as om :refer-macros [defui]]
             [om.dom :as dom]
             [om-next-kanban.reconciler :refer [reconciler]]
-            [om-next-kanban.parsing.boards :as boards]
+            [om-next-kanban.parsing.boards]
             [om-next-kanban.components.boards-menu :refer [BoardMenuItem boards-menu]]
             [om-next-kanban.components.board :refer [Board board]]
             [om-next-kanban.components.board-dialog :refer [BoardDialog board-dialog]]
